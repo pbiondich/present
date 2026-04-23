@@ -1,12 +1,12 @@
 # Presentations
 
-A static site hosting presentation decks by Jamie Thomas (Regenstrief Institute · Global Health Informatics).
+A static site hosting presentation decks by Paul Biondich, MD (Regenstrief Institute · Global Health Informatics · Founder, OpenMRS).
 
 ## Structure
 
 - `index.html` — landing page / chooser. Add a new `<a class="card">` block for each new deck.
-- `moh-rg-kickoff-v2.html` — first deck: NDoH × Regenstrief six-month kickoff.
-- `playground.html` - an animation playground... say goodbye to Google Slides and Powerpoint forever!
+- `moh-rg-kickoff-v2.html` — NDoH × Regenstrief six-month kickoff (14 slides).
+- `animation-playground.html` — Paul's Animation Playground, 16 studies in motion with varied transitions between slides.
 - `regenstrief-logo.png` — shared logo asset.
 
 ## Publishing on GitHub Pages
@@ -20,7 +20,7 @@ A static site hosting presentation decks by Jamie Thomas (Regenstrief Institute 
 Each deck is a single self-contained HTML file. To add one:
 
 1. Place the new `your-deck.html` in the repo root.
-2. Copy the `<a class="card">` block in `index.html`, update the `href`, title, label, pill date, and body copy.
+2. Copy an `<a class="card">` block in `index.html`, update the `href`, title, label, pill date, and body copy.
 3. Bump the `.count` in the section header.
 
 ## Notes
@@ -28,4 +28,5 @@ Each deck is a single self-contained HTML file. To add one:
 - Decks are built with React + Babel inlined — they work fully offline.
 - Each deck remembers its last-viewed slide in `localStorage`.
 - Use arrow keys or tap/click the edges to navigate.
+- The Animation Playground plays a different transition effect (push / dip / zoom / wipe / shutter / iris / overshoot) on every slide change.
 - To save as PDF: use the browser's **Print** command (`Cmd/Ctrl + P`) and "Save as PDF" — each slide renders as its own page at the authored 1920×1080 size, no extra setup needed.
