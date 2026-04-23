@@ -1,6 +1,6 @@
 # Presentations
 
-A static site hosting presentation decks by Paul Biondich.
+A static site hosting presentation decks by Jamie Thomas (Regenstrief Institute · Global Health Informatics).
 
 ## Structure
 
@@ -26,4 +26,5 @@ Each deck is a single self-contained HTML file. To add one:
 
 - Decks are built with React + Babel inlined — they work fully offline.
 - Each deck remembers its last-viewed slide in `localStorage`.
-- Use arrow keys or tap/click the edges to navigate. `P` prints to PDF.
+- Use arrow keys or tap/click the edges to navigate.
+- To save as PDF: use the browser's **Print** command (`Cmd/Ctrl + P`) and "Save as PDF" — each slide renders as its own page at the authored 1920×1080 size, no extra setup needed.
