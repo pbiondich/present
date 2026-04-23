@@ -1,6 +1,6 @@
 # Presentations
 
-A static site hosting presentation decks by Jamie Thomas (Regenstrief Institute · Global Health Informatics).
+A static site hosting presentation decks by Paul Biondich.
 
 ## Structure
 
