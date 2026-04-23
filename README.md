@@ -6,6 +6,7 @@ A static site hosting presentation decks by Jamie Thomas (Regenstrief Institute 
 
 - `index.html` — landing page / chooser. Add a new `<a class="card">` block for each new deck.
 - `moh-rg-kickoff-v2.html` — first deck: NDoH × Regenstrief six-month kickoff.
+- `playground.html` - an animation playground... say goodbye to Google Slides and Powerpoint forever!
 - `regenstrief-logo.png` — shared logo asset.
 
 ## Publishing on GitHub Pages
