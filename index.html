@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Paul Biondich · Presentations</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink:        #1a1510;
+    --parchment:  #f3ece0;
+    --parchment2: #e8dfce;
+    --gold:       #c88f2a;
+    --gold-light: #e8b659;
+    --ochre:      #b8621b;
+    --green:      #4a6b3a;
+    --muted:      #6b5f4f;
+    --line:       #d8cfbf;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--parchment); color: var(--ink); }
+  body {
+    font-family: 'Inter', system-ui, sans-serif;
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    background-image:
+      radial-gradient(ellipse 900px 600px at 85% -10%, rgba(232,182,89,0.12), transparent 60%),
+      radial-gradient(ellipse 700px 500px at -10% 90%, rgba(200,143,42,0.10), transparent 60%);
+  }
+
+  /* —— top chrome —— */
+  .chrome {
+    padding: 28px 64px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid var(--line);
+  }
+  .brand { display: flex; align-items: center; gap: 14px; }
+  .logo {
+    width: 44px; height: 44px; background: #5ecbf0;
+    overflow: hidden; flex-shrink: 0;
+  }
+  .logo img { width: 100%; height: 100%; display: block; object-fit: cover; }
+  .brand-text .name { font-size: 18px; font-weight: 700; letter-spacing: -0.01em; line-height: 1; }
+  .brand-text .sub {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--muted); margin-top: 5px;
+  }
+  .chrome-right {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* —— hero —— */
+  .hero {
+    padding: 72px 64px 48px;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: 0.28em; text-transform: uppercase;
+    color: var(--ochre); margin-bottom: 20px;
+  }
+  .eyebrow::before { content: '— '; }
+  h1 {
+    font-size: clamp(48px, 7.5vw, 112px);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    line-height: 0.95;
+    margin: 0 0 28px;
+    max-width: 18ch;
+  }
+  h1 .accent { color: var(--ochre); }
+  .lede {
+    font-family: 'Instrument Serif', Georgia, serif;
+    font-style: italic;
+    font-size: clamp(20px, 2.1vw, 28px);
+    line-height: 1.4;
+    color: var(--muted);
+    max-width: 780px;
+    margin: 0;
+  }
+
+  /* —— section header —— */
+  .section-head {
+    max-width: 1400px; width: 100%;
+    margin: 0 auto;
+    padding: 0 64px;
+    display: flex; align-items: baseline; justify-content: space-between;
+    border-top: 1px solid var(--ink);
+    padding-top: 22px;
+    margin-top: 28px;
+  }
+  .section-head h2 {
+    font-size: 28px; font-weight: 700; letter-spacing: -0.01em; margin: 0;
+  }
+  .section-head .count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  /* —— deck grid —— */
+  .grid {
+    max-width: 1400px; width: 100%;
+    margin: 0 auto;
+    padding: 28px 64px 96px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 28px;
+  }
+
+  .card {
+    background: var(--parchment);
+    border: 1px solid var(--ink);
+    text-decoration: none;
+    color: inherit;
+    display: flex; flex-direction: column;
+    position: relative;
+    transition: transform 160ms ease, box-shadow 160ms ease;
+    overflow: hidden;
+  }
+  .card:hover {
+    transform: translate(-3px, -3px);
+    box-shadow: 6px 6px 0 var(--ink);
+  }
+  .card .accent-bar {
+    height: 6px;
+    background: var(--ochre);
+  }
+  .card.coming .accent-bar { background: var(--line); }
+
+  .card-head {
+    padding: 24px 28px 12px;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 16px;
+  }
+  .card-label {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--ochre);
+  }
+  .card.coming .card-label { color: var(--muted); }
+  .pill {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+    padding: 4px 10px;
+    border: 1px solid var(--ink);
+    color: var(--ink);
+    white-space: nowrap;
+  }
+  .pill.coming { border-color: var(--line); color: var(--muted); }
+
+  .card-body { padding: 4px 28px 26px; flex: 1; }
+  .card-body h3 {
+    font-size: 32px; font-weight: 700; letter-spacing: -0.015em;
+    line-height: 1.05;
+    margin: 0 0 12px;
+  }
+  .card-body p {
+    font-size: 15px; line-height: 1.5;
+    color: var(--muted);
+    margin: 0;
+  }
+
+  .card-meta {
+    border-top: 1px solid var(--line);
+    padding: 14px 28px;
+    display: flex; align-items: center; justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.12em;
+    color: var(--muted);
+  }
+  .card-meta .arrow { font-size: 18px; color: var(--ochre); }
+  .card.coming .card-meta .arrow { color: var(--line); }
+
+  /* —— footer —— */
+  footer {
+    margin-top: auto;
+    padding: 24px 64px;
+    border-top: 1px solid var(--line);
+    display: flex; justify-content: space-between;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  @media (max-width: 720px) {
+    .chrome, .hero, .section-head, .grid, footer { padding-left: 28px; padding-right: 28px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="chrome">
+  <div class="brand">
+    <div class="logo"><img src="regenstrief-logo.png" alt="Regenstrief" /></div>
+    <div class="brand-text">
+      <div class="name">Paul Biondich</div>
+      <div class="sub">Regenstrief Institute · Global Health Informatics</div>
+    </div>
+  </div>
+  <div class="chrome-right">Presentations · 2026</div>
+</div>
+
+<section class="hero">
+  <div class="eyebrow">Working Library</div>
+  <h1>Presentations, <span class="accent">public</span>.</h1>
+  <p class="lede">
+    A running collection of decks from the road, the desk, and everything in between —
+    kept here so collaborators and partners can find them without asking.
+  </p>
+</section>
+
+<div class="section-head">
+  <h2>Decks</h2>
+  <div class="count">01 published</div>
+</div>
+
+<div class="grid">
+
+  <a class="card" href="moh-rg-kickoff-v2.html">
+    <div class="accent-bar"></div>
+    <div class="card-head">
+      <div class="card-label">Kickoff · NDoH × Regenstrief</div>
+      <div class="pill">Apr 2026</div>
+    </div>
+    <div class="card-body">
+      <h3>South African MOH · RG Kickoff</h3>
+      <p>
+        A 14-slide plan for the six-month engagement — workstreams, pre-workshop runway,
+        June convergence, post-workshop writing, and the questions we’re bringing to the NDoH.
+      </p>
+    </div>
+    <div class="card-meta">
+      <span>14 slides · ~15 min</span>
+      <span class="arrow">→</span>
+    </div>
+  </a>
+
+  <div class="card coming" aria-disabled="true">
+    <div class="accent-bar"></div>
+    <div class="card-head">
+      <div class="card-label">Next</div>
+      <div class="pill coming">Coming</div>
+    </div>
+    <div class="card-body">
+      <h3 style="color: var(--muted);">Your next deck</h3>
+      <p>
+        New presentations will land here as they’re written. Drop the bundled HTML
+        into this folder and add a card to index.html.
+      </p>
+    </div>
+    <div class="card-meta">
+      <span>Placeholder</span>
+      <span class="arrow">·</span>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  <span>© Paul Biondich · Regenstrief Institute</span>
+  <span>pbiondic@regenstrief.org</span>
+</footer>
+
+</body>
+</html>
